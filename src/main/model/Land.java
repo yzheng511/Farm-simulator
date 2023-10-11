@@ -4,11 +4,11 @@ public class Land {
     private Corp plant;
     private final int cost = 200;
     private int landCost;
-    private String name;
+    private int id;
     private int productionFactor;
 
-    public Land(String landName) {
-        name = landName;
+    public Land(int landId) {
+        id = landId;
         plant = null;
         landCost = cost;
         productionFactor = (int) (Math.random() * 21 + 10);
@@ -20,8 +20,8 @@ public class Land {
         return landCost;
     }
 
-    public String getName() {
-        return name;
+    public int getID() {
+        return id;
     }
 
     public int getSize() {

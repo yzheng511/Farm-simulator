@@ -124,7 +124,7 @@ public class FarmingGame {
 
     private void doPurchasingLand() {
         System.out.print("Enter land name:\n");
-        String landName = input.nextLine();
+        int landName = input.nextInt();
         player.createLand(landName);
         if (player.getMoney() >= player.createLand(landName).getCost()) {
             player.purchaseLand(player.createLand(landName));
@@ -144,9 +144,9 @@ public class FarmingGame {
         if (player.getLands().isEmpty()) {
             System.out.println("No available land\n");
         } else {
-            System.out.println("Land Name" + " " + "Land Size" + " " + "Land Profit" + " " + "Corp Name");
+            System.out.println("Land ID" + " " + "Land Size" + " " + "Land Profit" + " " + "Corp Name");
             for (Land l : player.getLands()) {
-                System.out.println(l.getName() + " " + l.getSize() + " " + l.getLandProfit() + " " + l.getPlantName());
+                System.out.println(l.getID() + " " + l.getSize() + " " + l.getLandProfit() + " " + l.getPlantName());
             }
         }
     }

@@ -15,8 +15,8 @@ public class Player {
         money = initialMoney;
     }
 
-    public Land createLand(String s) {
-        Land l = new Land(s);
+    public Land createLand(int i) {
+        Land l = new Land(i);
         return l;
     }
 
