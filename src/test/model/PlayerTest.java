@@ -35,5 +35,12 @@ class PlayerTest {
 
     }
 
-
+    @Test
+    void testGetProfit(){
+        Land l = testPlayer.createLand(1);
+        testPlayer.purchaseLand(l);
+        testPlayer.plantCorp(testCorp);
+        testPlayer.getProfit();
+        assertEquals(1800+l.getLandProfit(), testPlayer.getMoney());
+    }
 }
