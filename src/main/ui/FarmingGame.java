@@ -6,6 +6,7 @@ import model.Player;
 
 import java.util.Scanner;
 
+//Farming game application
 public class FarmingGame {
 
     private Player player;
@@ -16,10 +17,13 @@ public class FarmingGame {
     private int winCond;
     private int year;
 
+    //Effects: run Farm application
     public FarmingGame() {
         runFarm();
     }
 
+    // MODIFIES: this
+    // EFFECTS: processes user input
     private void runFarm() {
         boolean running = true;
         String command = null;
@@ -34,7 +38,7 @@ public class FarmingGame {
             if (command.equals("q")) {
                 running = false;
             } else if (player.getMoney() >= winCond) {
-                System.out.println("\nWin!");
+                System.out.println("\nWin!\n");
             } else {
                 processCommand(command);
             }
@@ -42,6 +46,8 @@ public class FarmingGame {
         System.out.println("\nEnd Game");
     }
 
+    // MODIFIES: this
+    // EFFECTS: processes user command
     private void processCommand(String command) {
         if (command.equals("c")) {
             doCornPlanting();
@@ -60,6 +66,8 @@ public class FarmingGame {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: initializes player and farm setting
     private void init() {
         player = new Player("Player1", 2000);
         corn = new Corp("Corn", (int) (Math.random() * 3 + 4));
@@ -71,6 +79,7 @@ public class FarmingGame {
         input.useDelimiter("\n");
     }
 
+    // EFFECTS: displays menu of options to user
     private void displayMenu() {
         System.out.println("Year: " + year);
         System.out.println("Money: $" + player.getMoney());
@@ -85,6 +94,8 @@ public class FarmingGame {
         System.out.println("\tq -> quit");
     }
 
+    //Modifies: this
+    //Effects: plant corn to empty land
     private void doCornPlanting() {
         if (player.getLands().isEmpty()) {
             System.out.println("No available land...\n");
@@ -97,6 +108,8 @@ public class FarmingGame {
         }
     }
 
+    //Modifies: this
+    //Effects: plant cocoa to empty land
     private void doCocoaPlanting() {
         if (player.getLands().isEmpty()) {
             System.out.println("No available land...\n");
@@ -109,6 +122,8 @@ public class FarmingGame {
         }
     }
 
+    //Modifies: this
+    //Effects: plant banana to empty land
     private void doBananaPlanting() {
         if (player.getLands().isEmpty()) {
             System.out.println("No available land...\n");
@@ -121,6 +136,8 @@ public class FarmingGame {
         }
     }
 
+    //Modifies: this
+    //Effects: add new land to player's land list if money enough
     private void doPurchasingLand() {
         System.out.print("Create land ID:\n");
         int landId = input.nextInt();
@@ -133,12 +150,15 @@ public class FarmingGame {
         viewLand();
     }
 
+    //Modifies: this
+    //Effects: add profit to money and proceed to next year
     private void doNextYear() {
         player.getProfit();
         year++;
 
     }
 
+    //Effects: print out all land in land list
     private void viewLand() {
         System.out.println("Land list:");
         if (player.getLands().isEmpty()) {
