@@ -66,7 +66,7 @@ public class FarmingGame {
         cocoa = new Corp("Cocoa", (int) (Math.random() * 10 + 1));
         banana = new Corp("Banana", (int) (Math.random() * 7 + 2));
         winCond = 50000;
-        year = 0;
+        year = 1;
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
@@ -123,11 +123,11 @@ public class FarmingGame {
     }
 
     private void doPurchasingLand() {
-        System.out.print("Enter land name:\n");
-        int landName = input.nextInt();
-        player.createLand(landName);
-        if (player.getMoney() >= player.createLand(landName).getCost()) {
-            player.purchaseLand(player.createLand(landName));
+        System.out.print("Create land ID:\n");
+        int landId = input.nextInt();
+        player.createLand(landId);
+        if (player.getMoney() >= player.createLand(landId).getCost()) {
+            player.purchaseLand(player.createLand(landId));
         } else {
             System.out.println("Money not enough...\n");
         }
@@ -144,9 +144,10 @@ public class FarmingGame {
         if (player.getLands().isEmpty()) {
             System.out.println("No available land\n");
         } else {
-            System.out.println("Land ID" + " " + "Land Size" + " " + "Land Profit" + " " + "Corp Name");
+            System.out.println("ID" + " " + "Size" + " " + "Profit" + " " + "Corp");
             for (Land l : player.getLands()) {
-                System.out.println(l.getID() + " " + l.getSize() + " " + l.getLandProfit() + " " + l.getPlantName());
+                System.out.println(l.getID() + "  " + l.getSize() + "   " + l.getLandProfit() + "     "
+                        + l.getPlantName());
             }
         }
     }

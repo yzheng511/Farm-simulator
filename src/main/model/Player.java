@@ -11,13 +11,12 @@ public class Player {
 
     public Player(String playerName, int initialMoney) {
         name = playerName;
-        lands = new ArrayList<Land>();
+        lands = new ArrayList<>();
         money = initialMoney;
     }
 
     public Land createLand(int i) {
-        Land l = new Land(i);
-        return l;
+        return new Land(i);
     }
 
     public void purchaseLand(Land land) {
@@ -39,13 +38,12 @@ public class Player {
     }
 
 
-    public int getProfit() {
+    public void getProfit() {
         for (Land l : lands) {
             if (l.getPlant() != null) {
                 money += l.getLandProfit();
             }
         }
-        return money;
     }
 
     public int getMoney() {
