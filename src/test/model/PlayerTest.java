@@ -29,9 +29,11 @@ class PlayerTest {
 
     @Test
     void testPlantCorp(){
+        assertFalse(testPlayer.plantCorp(testCorp));
         Land l = testPlayer.createLand(1);
         testPlayer.purchaseLand(l);
         assertTrue(testPlayer.plantCorp(testCorp));
+        assertFalse(testPlayer.plantCorp(testCorp));
 
     }
 
@@ -39,6 +41,8 @@ class PlayerTest {
     void testGetProfit(){
         Land l = testPlayer.createLand(1);
         testPlayer.purchaseLand(l);
+        testPlayer.getProfit();
+        assertEquals(1800+l.getLandProfit(), testPlayer.getMoney());
         testPlayer.plantCorp(testCorp);
         testPlayer.getProfit();
         assertEquals(1800+l.getLandProfit(), testPlayer.getMoney());
