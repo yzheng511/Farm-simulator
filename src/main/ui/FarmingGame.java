@@ -72,10 +72,10 @@ public class FarmingGame {
     }
 
     private void displayMenu() {
-        System.out.println("Year: \n" + year);
-        System.out.println("Money: $\n" + player.getMoney());
-        System.out.println("Goal: $\n" + winCond);
-        System.out.println("\nOptions:");
+        System.out.println("Year: " + year);
+        System.out.println("Money: $" + player.getMoney());
+        System.out.println("Goal: $" + winCond);
+        System.out.println("Options:");
         System.out.println("\tc -> plant corn(4-6 unit profit)");
         System.out.println("\ta -> plant cocoa(1-10 unit profit)");
         System.out.println("\tb -> plant banana(2-8 unit profit)");
@@ -107,7 +107,6 @@ public class FarmingGame {
                 System.out.println("Land full...\n");
             }
         }
-
     }
 
     private void doBananaPlanting() {
@@ -141,6 +140,7 @@ public class FarmingGame {
     }
 
     private void viewLand() {
+        System.out.println("Land list:");
         if (player.getLands().isEmpty()) {
             System.out.println("No available land\n");
         } else {
@@ -150,6 +150,7 @@ public class FarmingGame {
                         + l.getPlantName());
             }
         }
+        System.out.println("\n");
     }
 
 }
