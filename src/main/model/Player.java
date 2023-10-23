@@ -75,10 +75,6 @@ public class Player implements Writable {
         return lands;
     }
 
-    public void setMoney(int m) {
-        money = m;
-    }
-
     public void addLand(Land l) {
         lands.add(l);
     }
