@@ -3,12 +3,16 @@ package ui;
 import model.Corp;
 import model.Land;
 import model.Player;
-
+import persistence.JsonReader;
+import persistence.JsonWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 //Farming game application
 public class FarmingGame {
 
+    private static final String JSON_STORE = "./data/player.json";
     private Player player;
     private Corp corn;
     private Corp cocoa;
@@ -16,6 +20,8 @@ public class FarmingGame {
     private Scanner input;
     private int winCond;
     private int year;
+    private JsonReader jsonReader;
+    private JsonWriter jsonWriter;
 
     //Effects: run Farm application
     public FarmingGame() {
@@ -55,12 +61,16 @@ public class FarmingGame {
             doCocoaPlanting();
         } else if (command.equals("b")) {
             doBananaPlanting();
-        } else if (command.equals("l")) {
+        } else if (command.equals("p")) {
             doPurchasingLand();
         } else if (command.equals("n")) {
             doNextYear();
         } else if (command.equals("v")) {
             viewLand();
+        } else if (command.equals("s")) {
+            savePlayer();
+        } else if (command.equals("l")) {
+            loadPlayer();
         } else {
             System.out.println("Not a valid selection");
         }
@@ -70,6 +80,8 @@ public class FarmingGame {
     // EFFECTS: initializes player and farm setting
     private void init() {
         player = new Player("Player1", 2000);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         corn = new Corp("Corn", (int) (Math.random() * 3 + 4));
         cocoa = new Corp("Cocoa", (int) (Math.random() * 10 + 1));
         banana = new Corp("Banana", (int) (Math.random() * 7 + 2));
@@ -88,9 +100,11 @@ public class FarmingGame {
         System.out.println("\tc -> plant corn(4-6 unit profit)");
         System.out.println("\ta -> plant cocoa(1-10 unit profit)");
         System.out.println("\tb -> plant banana(2-8 unit profit)");
-        System.out.println("\tl -> purchase land(land size 10-30 units)");
+        System.out.println("\tp -> purchase land(land size 10-30 units)");
         System.out.println("\tn -> proceed to next year");
         System.out.println("\tv -> view land list");
+        System.out.println("\ts -> save player to file");
+        System.out.println("\tl -> load player from file");
         System.out.println("\tq -> quit");
     }
 
@@ -171,6 +185,29 @@ public class FarmingGame {
             }
         }
         System.out.println("\n");
+    }
+
+    // EFFECTS: saves the workroom to file
+    private void savePlayer() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(player);
+            jsonWriter.close();
+            System.out.println("Saved " + player.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void loadPlayer() {
+        try {
+            player = jsonReader.read();
+            System.out.println("Loaded " + player.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
 }

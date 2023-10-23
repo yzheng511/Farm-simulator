@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represent a corp having corp name and corp price
-public class Corp {
+public class Corp implements Writable {
     private int corpPrice;
     private String corpName;
 
@@ -21,4 +24,11 @@ public class Corp {
         return corpName;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", corpName);
+        json.put("price", corpPrice);
+        return json;
+    }
 }

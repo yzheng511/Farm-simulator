@@ -1,11 +1,15 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.List;
 import java.util.ArrayList;
 
 //Represents a class containing player name,
 //list of lands owned by player, and amount of money player has.
-public class Player {
+public class Player implements Writable {
     private String name;
     private List<Land> lands;
     private int money;
@@ -71,4 +75,28 @@ public class Player {
         return lands;
     }
 
+    public void setMoney(int m) {
+        money = m;
+    }
+
+    public void addLand(Land l) {
+        lands.add(l);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("money", money);
+        json.put("lands", landsToJson());
+        return json;
+    }
+
+    public JSONArray landsToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (Land l : lands) {
+            jsonArray.put(l.toJson());
+        }
+        return jsonArray;
+    }
 }

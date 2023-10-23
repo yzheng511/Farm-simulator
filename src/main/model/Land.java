@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 //Representing a class containing land Id, land cost, land size, and crop in land
-public class Land {
+public class Land implements Writable {
     private Corp plant;
     private final int cost = 200;
     private int landCost;
@@ -50,6 +53,10 @@ public class Land {
         plant = corp;
     }
 
+    public void setSize(int s) {
+        size = s;
+    }
+
     // Effects: if there is plant in land, return product of plant price and land size,
     //          otherwise, return 0
     public int getLandProfit() {
@@ -58,5 +65,16 @@ public class Land {
         } else {
             return size * plant.getRevenue();
         }
+    }
+
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("id", id);
+        json.put("plant", plant.toJson());
+        json.put("landCost", cost);
+        json.put("size", size);
+        return json;
     }
 }
