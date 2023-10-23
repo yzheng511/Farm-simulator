@@ -1,0 +1,33 @@
+{
+    "money": 1400,
+    "lands": [
+        {
+            "size": 13,
+            "plant": {
+                "price": 5,
+                "name": "Corn"
+            },
+            "landCost": 200,
+            "id": 1
+        },
+        {
+            "size": 26,
+            "plant": {
+                "price": 6,
+                "name": "Cocoa"
+            },
+            "landCost": 200,
+            "id": 2
+        },
+        {
+            "size": 28,
+            "plant": {
+                "price": 5,
+                "name": "Banana"
+            },
+            "landCost": 200,
+            "id": 3
+        }
+    ],
+    "name": "Player1"
+}
