@@ -2,28 +2,28 @@
     "money": 1400,
     "lands": [
         {
-            "size": 24,
+            "size": 26,
             "plant": {
-                "price": 10,
+                "price": 4,
                 "name": "Cocoa"
             },
             "landCost": 200,
             "id": 1
         },
         {
-            "size": 18,
+            "size": 25,
             "plant": {
-                "price": 4,
-                "name": "Corn"
+                "price": 2,
+                "name": "Banana"
             },
             "landCost": 200,
             "id": 2
         },
         {
-            "size": 16,
+            "size": 10,
             "plant": {
-                "price": 8,
-                "name": "Banana"
+                "price": 6,
+                "name": "Corn"
             },
             "landCost": 200,
             "id": 3

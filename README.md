@@ -20,5 +20,7 @@ valuable for me to integrate the knowledge from both sides in the project.
 - As a user, I want to see the list of land I have.
 - As a user, I want to add the annual income towards my total wealth.
 - As a user, I want to purchase new land into my existing lands and specify land ID, land size, land profit, and corp.
+- As a user, I want to have the option to save the player state to file.
+- As a user, I want to have the option to load the player state from file.
 
   

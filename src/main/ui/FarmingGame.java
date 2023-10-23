@@ -187,7 +187,7 @@ public class FarmingGame {
         System.out.println("\n");
     }
 
-    // EFFECTS: saves the workroom to file
+    // EFFECTS: saves the player to file
     private void savePlayer() {
         try {
             jsonWriter.open();
@@ -200,7 +200,7 @@ public class FarmingGame {
     }
 
     // MODIFIES: this
-    // EFFECTS: loads workroom from file
+    // EFFECTS: loads player from file
     private void loadPlayer() {
         try {
             player = jsonReader.read();

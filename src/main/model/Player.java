@@ -75,6 +75,8 @@ public class Player implements Writable {
         return lands;
     }
 
+    //Modifies: this
+    //Effects: add one land to the list of lands
     public void addLand(Land l) {
         lands.add(l);
     }
@@ -88,6 +90,7 @@ public class Player implements Writable {
         return json;
     }
 
+    //Effects: return the lands owned by the player as a JSON array
     public JSONArray landsToJson() {
         JSONArray jsonArray = new JSONArray();
         for (Land l : lands) {

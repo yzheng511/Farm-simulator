@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 
 import org.json.*;
 
+//Represents a reader that reads player from JSON data stored in file
 public class JsonReader {
 
     private String source;
@@ -21,7 +22,7 @@ public class JsonReader {
         this.source = source;
     }
 
-    // EFFECTS: reads workroom from file and returns it;
+    // EFFECTS: reads player from file and returns it;
     // throws IOException if an error occurs reading data from file
     public Player read() throws IOException {
         String jsonData = readFile(source);
@@ -40,7 +41,7 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
-    // EFFECTS: parses workroom from JSON object and returns it
+    // EFFECTS: parses player from JSON object and returns it
     private Player parsePlayer(JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         int money = jsonObject.getInt("money");
@@ -49,8 +50,8 @@ public class JsonReader {
         return pl;
     }
 
-    // MODIFIES: wr
-    // EFFECTS: parses thingies from JSON object and adds them to workroom
+    // MODIFIES: pl
+    // EFFECTS: parses lands from JSON object and adds them to player
     private void addLands(Player pl, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("lands");
         for (Object json : jsonArray) {
@@ -59,8 +60,8 @@ public class JsonReader {
         }
     }
 
-    // MODIFIES: wr
-    // EFFECTS: parses thingy from JSON object and adds it to workroom
+    // MODIFIES: pl
+    // EFFECTS: parses land from JSON object and adds it to player
     private void addLand(Player pl, JSONObject jsonObject) {
         int id = jsonObject.getInt("id");
         Land land = new Land(id);
@@ -71,6 +72,8 @@ public class JsonReader {
         pl.addLand(land);
     }
 
+    //Modifies: land
+    //Effects: parses plant from JSON object and adds it to land
     private void addPlant(Land l, JSONObject jsonObject) {
         String corpName = jsonObject.getString("name");
         int corpPrice = jsonObject.getInt("price");
