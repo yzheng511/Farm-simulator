@@ -1,32 +1,41 @@
 {
-    "money": 1400,
+    "money": 1200,
     "lands": [
         {
-            "size": 26,
-            "plant": {
-                "price": 4,
-                "name": "Cocoa"
-            },
-            "landCost": 200,
-            "id": 1
-        },
-        {
-            "size": 25,
-            "plant": {
-                "price": 2,
-                "name": "Banana"
-            },
-            "landCost": 200,
-            "id": 2
-        },
-        {
-            "size": 10,
+            "size": 23,
             "plant": {
                 "price": 6,
                 "name": "Corn"
             },
             "landCost": 200,
+            "id": 1
+        },
+        {
+            "size": 23,
+            "plant": {
+                "price": 6,
+                "name": "Corn"
+            },
+            "landCost": 200,
+            "id": 2
+        },
+        {
+            "size": 20,
+            "plant": {
+                "price": 6,
+                "name": "Banana"
+            },
+            "landCost": 200,
             "id": 3
+        },
+        {
+            "size": 15,
+            "plant": {
+                "price": 3,
+                "name": "Cocoa"
+            },
+            "landCost": 200,
+            "id": 4
         }
     ],
     "name": "Player1"
