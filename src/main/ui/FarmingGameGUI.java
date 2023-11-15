@@ -403,33 +403,38 @@ public class FarmingGameGUI extends JFrame {
                 landAreaX = 400;
                 landAreaY += 35;
                 generateIcon(l);
+                landIndex = player.getLands().indexOf(l);
                 landAreaX = 435;
                 landAreaY += 35;
             } else {
                 generateIcon(l);
+                landIndex = player.getLands().indexOf(l);
                 landAreaX += 35;
             }
         }
     }
 
     private void generateIcon(Land l) {
-        if (l.getPlant() == corn) {
+        if (l.getPlantName().equals(corn.getCorpName())) {
             JLabel landImage1 = new JLabel(landCorn);
             landImage1.setSize(30, 30);
             landImage1.setLocation(landAreaX, landAreaY);
             dataPanel.add(landImage1);
+            addedLand.add(landImage1);
             repaint();
-        } else if (l.getPlant() == cocoa) {
+        } else if (l.getPlantName().equals(cocoa.getCorpName())) {
             JLabel landImage3 = new JLabel(landCocoa);
             landImage3.setSize(30, 30);
             landImage3.setLocation(landAreaX, landAreaY);
             dataPanel.add(landImage3);
+            addedLand.add(landImage3);
             repaint();
-        } else if (l.getPlant() == banana) {
+        } else if (l.getPlantName().equals(banana.getCorpName())) {
             JLabel landImage2 = new JLabel(landBanana);
             landImage2.setSize(30, 30);
             landImage2.setLocation(landAreaX, landAreaY);
             dataPanel.add(landImage2);
+            addedLand.add(landImage2);
             repaint();
         }
     }
