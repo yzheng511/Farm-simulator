@@ -45,7 +45,9 @@ public class JsonReader {
     private Player parsePlayer(JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         int money = jsonObject.getInt("money");
+        int year = jsonObject.getInt("year");
         Player pl = new Player(name, money);
+        pl.setYear(year);
         addLands(pl, jsonObject);
         return pl;
     }

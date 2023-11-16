@@ -19,7 +19,6 @@ public class FarmingGame {
     private Corp banana;
     private Scanner input;
     private int winCond;
-    private int year;
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
 
@@ -86,14 +85,13 @@ public class FarmingGame {
         cocoa = new Corp("Cocoa", (int) (Math.random() * 10 + 1));
         banana = new Corp("Banana", (int) (Math.random() * 7 + 2));
         winCond = 50000;
-        year = 1;
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
 
     // EFFECTS: displays menu of options to user
     private void displayMenu() {
-        System.out.println("Year: " + year);
+        System.out.println("Year: " + player.getYear());
         System.out.println("Money: $" + player.getMoney());
         System.out.println("Goal: $" + winCond);
         System.out.println("Options:");
@@ -168,7 +166,7 @@ public class FarmingGame {
     //Effects: add profit to money and proceed to next year
     private void doNextYear() {
         player.getProfit();
-        year++;
+        player.addYear();
 
     }
 

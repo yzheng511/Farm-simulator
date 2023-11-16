@@ -13,6 +13,7 @@ public class Player implements Writable {
     private String name;
     private List<Land> lands;
     private int money;
+    private int year;
 
     /* Requires: playerName has non-Zero length
      * Effects: name is set to player name, money is set to initial money,
@@ -22,6 +23,7 @@ public class Player implements Writable {
         name = playerName;
         lands = new ArrayList<>();
         money = initialMoney;
+        year = 1;
     }
 
     // Effects: create new land object
@@ -75,10 +77,24 @@ public class Player implements Writable {
         return lands;
     }
 
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int y) {
+        year = y;
+    }
+
     //Modifies: this
     //Effects: add one land to the list of lands
     public void addLand(Land l) {
         lands.add(l);
+    }
+
+    //Modifies: this
+    //Effects: add one year to the current year
+    public void addYear() {
+        year++;
     }
 
     @Override
@@ -86,6 +102,7 @@ public class Player implements Writable {
         JSONObject json = new JSONObject();
         json.put("name", name);
         json.put("money", money);
+        json.put("year", year);
         json.put("lands", landsToJson());
         return json;
     }

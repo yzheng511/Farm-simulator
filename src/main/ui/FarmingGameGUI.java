@@ -39,7 +39,6 @@ public class FarmingGameGUI extends JFrame {
     private Corp cocoa;
     private Corp banana;
     private int winCond;
-    private int year;
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
     private ImageIcon landST;
@@ -91,7 +90,6 @@ public class FarmingGameGUI extends JFrame {
         cocoa = new Corp("Cocoa", (int) (Math.random() * 10 + 1));
         banana = new Corp("Banana", (int) (Math.random() * 7 + 2));
         winCond = 50000;
-        year = 1;
         landAreaX = 400;
         landAreaY = 5;
         instantX = 0;
@@ -108,7 +106,7 @@ public class FarmingGameGUI extends JFrame {
         moneyLabel = new JLabel(Integer.toString(player.getMoney()));
         moneyLabel.setSize(200, 15);
         moneyLabel.setLocation(48, 5);
-        yearLabel = new JLabel(Integer.toString(year));
+        yearLabel = new JLabel(Integer.toString(player.getYear()));
         yearLabel.setSize(200, 15);
         yearLabel.setLocation(35, 20);
         moneyLabelTitle = new JLabel("Money:");
@@ -241,9 +239,9 @@ public class FarmingGameGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == proceedButton) {
                     player.getProfit();
-                    year++;
+                    player.addYear();
                     moneyLabel.setText(Integer.toString(player.getMoney()));
-                    yearLabel.setText(Integer.toString(year));
+                    yearLabel.setText(Integer.toString(player.getYear()));
                 }
             }
         });
@@ -285,7 +283,7 @@ public class FarmingGameGUI extends JFrame {
                     try {
                         player = jsonReader.read();
                         moneyLabel.setText(Integer.toString(player.getMoney()));
-                        yearLabel.setText(Integer.toString(year));
+                        yearLabel.setText(Integer.toString(player.getYear()));
                         restoreLand();
                         repaint();
                         System.out.println("Loaded " + player.getName() + " from " + JSON_STORE);
