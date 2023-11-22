@@ -22,5 +22,19 @@ valuable for me to integrate the knowledge from both sides in the project.
 - As a user, I want to purchase new land into my existing lands and specify land ID, land size, land profit, and corp.
 - As a user, I want to have the option to save the player state to file.
 - As a user, I want to have the option to load the player state from file.
+- As a user, I want to be able to purchase land for the player and display the land in the panel at right
+- As a user, I want to be able to add corps to my empty lands and display the corp change in the panel at right
+- As a user, I want to be able to save the state of the application using the save data button
+- As a user, I want to be able to load the state of the application using the load data button
 
+
+## Instructions for Grader
+
+- You can generate the first required action related to the user story "adding multiple Xs to a Y" by input the
+  integer land ID and click the  " Purchase Land " button.
+- You can generate the second required action related to the user story "adding multiple Xs to a Y" by click the
+  "Plant Corn"/"Plant Cocoa"/"Plant Banana" button
+- You can locate my visual component the left side of the GUI screen
+- You can save the state of my application by click the "Save Data " button
+- You can reload the state of my application by click the "Load Data" button
   

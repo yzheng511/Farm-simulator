@@ -16,7 +16,12 @@ import model.Player;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
+//Code influenced by the C3-LectureLabStarter https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabStarter.git
+//Images borrowed from https://www.iconarchive.com/show/noto-emoji-food-drink-icons-by-google/32362-ear-of-corn-icon.html,
+//https://www.iconarchive.com/show/noto-emoji-food-drink-icons-by-google/32362-ear-of-corn-icon.html,
+//https://clipart-library.com/clipart/1653745.htm
 
+//Farming game application with graphical user interface
 public class FarmingGameGUI extends JFrame {
 
     private static final String JSON_STORE = "./data/player.json";
@@ -55,6 +60,7 @@ public class FarmingGameGUI extends JFrame {
     private List<JLabel> addedLand;
 
 
+    //Effects: run farming game graphical user interface
     public FarmingGameGUI() {
         super("Farming UI");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -150,6 +156,8 @@ public class FarmingGameGUI extends JFrame {
         });
     }
 
+    //Modifies: this
+    //Effects: plant corn in nearest empty land and show in screen
     private void plantCorn() {
         cornButton.addActionListener(new ActionListener() {
             @Override
@@ -176,6 +184,8 @@ public class FarmingGameGUI extends JFrame {
         });
     }
 
+    //Modifies: this
+    //Effects: plant banana in nearest empty land and show in screen
     private void plantBanana() {
         bananaButton.addActionListener(new ActionListener() {
             @Override
@@ -202,6 +212,8 @@ public class FarmingGameGUI extends JFrame {
         });
     }
 
+    //Modifies: this
+    //Effects: plant cocoa in nearest empty land and show in screen
     private void plantCocoa() {
         cocoaButton.addActionListener(new ActionListener() {
             @Override
@@ -228,6 +240,8 @@ public class FarmingGameGUI extends JFrame {
         });
     }
 
+    //Modifies: this
+    //Effects: update player data to next year and refresh graphically in screen
     private void doNextYear() {
         proceedButton = new JButton("Proceed to Next Year");
         proceedButton.setActionCommand("proceed to next year");
@@ -247,6 +261,8 @@ public class FarmingGameGUI extends JFrame {
         });
     }
 
+    //Modifies: this
+    //Effects: save player data
     private void savePlayer() {
         saveButton = new JButton("Save Data");
         saveButton.setActionCommand("save data");
@@ -270,6 +286,8 @@ public class FarmingGameGUI extends JFrame {
         });
     }
 
+    //Modifies: this
+    //load player data from file
     private void loadPlayer() {
         loadButton = new JButton("Load Data");
         loadButton.setActionCommand("load data");
@@ -295,6 +313,8 @@ public class FarmingGameGUI extends JFrame {
         });
     }
 
+    //Modifies: this
+    //Effects: initialize graphical representation for methods needed for making purchase
     private void initPurchase() {
         purchaseButton = new JButton("Purchase Land");
         purchaseButton.setActionCommand("purchase");
@@ -307,6 +327,8 @@ public class FarmingGameGUI extends JFrame {
         dataPanel.add(idInput);
     }
 
+    //Modifies: this
+    //Effects: initialize graphical representation for methods for making planting
     private void initPlant() {
         cornButton = new JButton("Plant Corn");
         cornButton.setActionCommand("plant corn");
@@ -325,6 +347,8 @@ public class FarmingGameGUI extends JFrame {
         dataPanel.add(bananaButton);
     }
 
+    //Modifies: this
+    //Effects: make graphical representation of land in screen
     private void drawLand() {
         if (landAreaX >= 785) {
             JLabel landImage0 = new JLabel(landST);
@@ -350,6 +374,8 @@ public class FarmingGameGUI extends JFrame {
         }
     }
 
+    //Modifies: this
+    //Effects: making graphical representation of corn in screen
     private void drawCorn() {
         int xcoord = landLocation.get(empLand).get(0);
         int ycoord = landLocation.get(empLand).get(1);
@@ -361,6 +387,8 @@ public class FarmingGameGUI extends JFrame {
         repaint();
     }
 
+    //Modifies: this
+    //Effects: making graphical representation of banana in screen
     private void drawBanana() {
         int xcoord = landLocation.get(empLand).get(0);
         int ycoord = landLocation.get(empLand).get(1);
@@ -372,6 +400,8 @@ public class FarmingGameGUI extends JFrame {
         repaint();
     }
 
+    //Modifies: this
+    //Effects: making graphical representation of cocoa in screen
     private void drawCocoa() {
         int xcoord = landLocation.get(empLand).get(0);
         int ycoord = landLocation.get(empLand).get(1);
@@ -383,6 +413,7 @@ public class FarmingGameGUI extends JFrame {
         repaint();
     }
 
+    //Effects: initialize images in the program
     private void loadImages() {
         String sep = System.getProperty("file.separator");
         landST = new ImageIcon(System.getProperty("user.dir") + sep
@@ -395,6 +426,8 @@ public class FarmingGameGUI extends JFrame {
                 + "image" + sep + "210corn.png");
     }
 
+    //Modifies: this
+    //Effects: show graphical representation in screen according to previous user data
     private void restoreLand() {
         for (Land l : player.getLands()) {
             if (landAreaX >= 785) {
@@ -412,6 +445,8 @@ public class FarmingGameGUI extends JFrame {
         }
     }
 
+    //Modifies: this
+    //Effects: generate different graphical representations in screen according to user data
     private void generateIcon(Land l) {
         if (l.getPlantName().equals(corn.getCorpName())) {
             JLabel landImage1 = new JLabel(landCorn);

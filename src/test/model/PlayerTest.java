@@ -47,4 +47,10 @@ class PlayerTest {
         testPlayer.getProfit();
         assertEquals(1800+l.getLandProfit(), testPlayer.getMoney());
     }
+
+    @Test
+    void testAddYear() {
+        testPlayer.addYear();
+        assertEquals(2, testPlayer.getYear());
+    }
 }
