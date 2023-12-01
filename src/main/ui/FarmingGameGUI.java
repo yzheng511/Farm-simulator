@@ -18,7 +18,6 @@ import model.Player;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 import model.EventLog;
-import java.awt.event.ActionEvent;
 import model.Event;
 
 //Code influenced by the C3-LectureLabStarter https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabStarter.git

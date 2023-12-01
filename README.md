@@ -37,4 +37,13 @@ valuable for me to integrate the knowledge from both sides in the project.
 - You can locate my visual component the left side of the GUI screen
 - You can save the state of my application by click the "Save Data " button
 - You can reload the state of my application by click the "Load Data" button
-  
+
+
+## Phase 4: Task 3
+
+For this program, one thing I can do refactoring on is the searching algorithm on planting corps onto the empty lands. 
+In the current searching algorithm, the program is using a for-each loop to search recursively for the empty lands. As
+the player purchase more and more lands, the list will become longer and the searching process will inevitably taking 
+longer time. For refactoring, I can add a sorting algorithm to place the empty lands in the front of the list and
+therefore reduce the processing time.
+
