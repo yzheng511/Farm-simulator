@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
@@ -15,6 +17,9 @@ import model.Land;
 import model.Player;
 import persistence.JsonReader;
 import persistence.JsonWriter;
+import model.EventLog;
+import java.awt.event.ActionEvent;
+import model.Event;
 
 //Code influenced by the C3-LectureLabStarter https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabStarter.git
 //Images borrowed from https://www.iconarchive.com/show/noto-emoji-food-drink-icons-by-google/32362-ear-of-corn-icon.html,
@@ -22,7 +27,7 @@ import persistence.JsonWriter;
 //https://clipart-library.com/clipart/1653745.htm
 
 //Farming game application with graphical user interface
-public class FarmingGameGUI extends JFrame {
+public class FarmingGameGUI extends JFrame implements WindowListener {
 
     private static final String JSON_STORE = "./data/player.json";
     private JLabel moneyLabel;
@@ -60,11 +65,13 @@ public class FarmingGameGUI extends JFrame {
     private List<JLabel> addedLand;
 
 
+
     //Effects: run farming game graphical user interface
     public FarmingGameGUI() {
         super("Farming UI");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         init();
+        //setDefaultCloseOperation(EXIT_ON_CLOSE);
+        addWindowListener(this);
         dataPanel = new JPanel();
         dataPanel.setOpaque(true);
         dataPanel.setBackground(Color.YELLOW);
@@ -183,6 +190,7 @@ public class FarmingGameGUI extends JFrame {
             }
         });
     }
+
 
     //Modifies: this
     //Effects: plant banana in nearest empty land and show in screen
@@ -472,8 +480,55 @@ public class FarmingGameGUI extends JFrame {
         }
     }
 
+    @Override
+    public void windowOpened(WindowEvent e) {
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        printLog(EventLog.getInstance());
+        System.exit(0);
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+
+
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+
+    }
+
+
+
+    public void printLog(EventLog el) {
+        for (Event next : el) {
+            System.out.println(next.toString());
+        }
+    }
+
+
     public static void main(String[] args) {
         new FarmingGameGUI();
     }
+
+
 }
 

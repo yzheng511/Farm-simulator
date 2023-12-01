@@ -1,30 +1,30 @@
 {
-    "money": 3308,
-    "year": 7,
+    "money": 2575,
+    "year": 6,
     "lands": [
         {
-            "size": 27,
+            "size": 22,
             "plant": {
-                "price": 2,
-                "name": "Cocoa"
+                "price": 3,
+                "name": "Banana"
             },
             "landCost": 200,
             "id": 1
         },
         {
-            "size": 26,
+            "size": 25,
             "plant": {
-                "price": 6,
+                "price": 5,
                 "name": "Corn"
             },
             "landCost": 200,
             "id": 2
         },
         {
-            "size": 27,
+            "size": 11,
             "plant": {
                 "price": 4,
-                "name": "Banana"
+                "name": "Cocoa"
             },
             "landCost": 200,
             "id": 3

@@ -37,7 +37,7 @@ public class Player implements Writable {
     public void purchaseLand(Land land) {
         lands.add(land);
         money -= land.getCost();
-
+        EventLog.getInstance().logEvent(new Event("Purchase new land"));
     }
 
     //Modifies: this
@@ -49,6 +49,7 @@ public class Player implements Writable {
             if (l.getPlant() == null) {
                 l.setPlant(corp);
                 hasEmptyLand = true;
+                EventLog.getInstance().logEvent(new Event("Plant " + corp.getCorpName()));
                 break;
             }
         }
@@ -95,6 +96,7 @@ public class Player implements Writable {
     //Effects: add one year to the current year
     public void addYear() {
         year++;
+        EventLog.getInstance().logEvent(new Event("Proceeded to year" + year));
     }
 
     @Override
