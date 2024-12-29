@@ -27,7 +27,7 @@ valuable for me to integrate the knowledge from both sides in the project.
 - As a user, I want to be able to save the state of the application using the save data button
 - As a user, I want to be able to load the state of the application using the load data button
 
-
+ 
 ## Instructions for Grader
 
 - You can generate the first required action related to the user story "adding multiple Xs to a Y" by input the
